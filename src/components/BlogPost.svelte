@@ -4,11 +4,9 @@
 </script>
 
 <div class="flex flex-col gap-5 md:w-2/3 mx-auto">
-  {#if !note.is_root}
-    <a href={note.category.pathname} data-sveltekit-reload>
-      {note.category.title}
-    </a>
-  {/if}
+  <a href={note.category.pathname} data-sveltekit-reload>
+    {note.category.title}
+  </a>
 
   <h1>{note.title}</h1>
 

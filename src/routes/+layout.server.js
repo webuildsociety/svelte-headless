@@ -7,7 +7,7 @@ export async function load({url, params}) {
   var slug = params.slug || "";
 
   // Get content from pullnote
-  var apiUrl = "http://localhost:5173/pull/note/" + slug;
+  var apiUrl = "https://pullnote.com/pull/note/" + slug;
   var res = await fetch(apiUrl, {
     headers: {
       "Content-Type": "application/json; charset=utf-8",
