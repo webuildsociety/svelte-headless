@@ -11,7 +11,7 @@ export async function load({url, params}) {
   var res = await fetch(apiUrl, {
     headers: {
       "Content-Type": "application/json; charset=utf-8",
-      "Authorization": "Bearer " + PULLNOTE_KEY
+      "pn_authorization": "Bearer " + PULLNOTE_KEY
     }
   });
   var data = await res.json();
