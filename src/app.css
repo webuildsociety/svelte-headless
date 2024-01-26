@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+  @apply text-4xl;
+}
+h2 {
+  @apply text-2xl;
+}
+h3 {
+  @apply text-xl;
+}
+
+select {
+  @apply border border-solid border-gray-300 p-2 rounded
+}
+
+ul {
+	@apply ml-8;
+}
+ul li {
+	@apply p-1;
+}
+
+img {
+  @apply max-h-96 mx-auto;
+}
+
+.btn {
+  @apply bg-blue-500 text-white px-4 py-2 rounded-md transition ease-in duration-200 transform hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50;
+}
