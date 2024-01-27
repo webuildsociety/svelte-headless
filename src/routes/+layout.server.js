@@ -1,6 +1,7 @@
 // Back-end SvelteKit +layout.server.js to retrieve blog content from pullnote.com
 export async function load({url, params}) {
 
+  // Replace this with your own key
   const PULLNOTE_KEY = "svelte-h_615pnaa082d2d29199";
 
   // Page slug e.g. "productivity/how-to-concentrate"
