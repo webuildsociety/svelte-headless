@@ -34,3 +34,6 @@ img {
 .content a {
   @apply underline;
 }
+.content code {
+  @apply bg-gray-100 py-1 px-2 rounded;
+}
