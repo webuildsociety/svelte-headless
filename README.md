@@ -1,6 +1,6 @@
 # Svelte Headless
 Example site showing how to create a simple blog site that plugs into a headless CMS.
-See this running at (svelteheadless.com)[https://www.svelteheadless.com/].
+See this running at [svelteheadless.com](https://www.svelteheadless.com/).
 
 ## Getting started
 - Clone this repo with `git clone git@github.com:webuildsociety/svelte-headless.git`
