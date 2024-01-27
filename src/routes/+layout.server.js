@@ -15,6 +15,5 @@ export async function load({url, params}) {
     }
   });
   var data = await res.json();
-  console.log("layout.server returning:", data);
   return data;
 }

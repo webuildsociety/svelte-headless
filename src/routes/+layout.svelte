@@ -10,7 +10,7 @@
 
 <Header />
 
-<div class="m-2">
+<div class="my-9">
   <slot />
 </div>
 

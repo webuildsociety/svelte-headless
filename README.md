@@ -1,10 +1,18 @@
 # Svelte Headless
-Example site showing how to create a simple blog site that plugs into a headless CMS so you don't have to do all that admin-side coding.
+Example site showing how to create a simple blog site that plugs into a headless CMS.
 
-## Ultra-fast, super simple free headless blog made with Svelte and Pushnote.
-- The code from this site comes from our github repo [https://github.com/webuildsociety/svelte-headless](https://github.com/webuildsociety/svelte-headless).
-- The content of this site comes from [https://pullnote.com](pullnote.com).
+## Getting started
+- Clone this repo with `git clone git@github.com:webuildsociety/svelte-headless.git`
+- Install with `npm install`
+- Run with `npm run dev`
 
-This site took less than an hour to create from start to finish, including registering the domain and setting up hosting (at vercel.com). Downloading it as a skeleton you could probably get the whole process complete in less.
+## To make it your own
+- We use [Tailwind](https://tailwindcss.com/) for CSS styling, as it's faster to code and less prone to mistakes than standard CSS. Add your own styling in `app.css`
+- We use [Pullnote](https://pullnote.com) as the content management system, as it's headless and free. Setup your own, and replace the key `PULLNOTE_KEY`` in `+layout.server.js`
+- Non-CMS pages can be added normally with additional folders under `routes`
+- Replace +page.svelte with your home-page and adjust `Header.svelte` for `Footer.svelte` for site-wide consistency
 
-Have fun!
+## To get it live
+- Get a free github repository and use GitHub desktop to upload your version of this code
+- Register a domain (we use [Fasthosts](https://fasthosts.co.uk)) and add an A record to point it at 76.76.21.21
+- Setup a [Vercel](https://vercel.com) account and point it at your github account and domain

@@ -20,7 +20,7 @@ ul {
 	@apply ml-8;
 }
 ul li {
-	@apply p-1;
+	@apply p-1 list-disc leading-loose;
 }
 
 img {
@@ -29,4 +29,8 @@ img {
 
 .btn {
   @apply bg-blue-500 text-white px-4 py-2 rounded-md transition ease-in duration-200 transform hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50;
+}
+
+.content a {
+  @apply underline;
 }
