@@ -9,7 +9,7 @@
     <ul>
       {#each note.links as link}
         <li>
-          <a class="link" href={link.pathname} data-sveltekit-reload>
+          <a class="link" href={link.pathname}>
             {link.title}
           </a>
         </li>

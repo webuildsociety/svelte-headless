@@ -4,7 +4,7 @@
 </script>
 
 <div class="flex flex-col gap-5 md:w-2/3 mx-auto">
-  <a href={note.category.pathname} data-sveltekit-reload>
+  <a href={note.category.pathname}>
     {note.category.title}
   </a>
 
