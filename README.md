@@ -1,11 +1,8 @@
-# Svelte Headless
-Example site showing how to create a simple blog site that plugs into a headless CMS.
-See this running at [svelteheadless.com](https://www.svelteheadless.com/).
-
-## Getting started
 - Clone this repo with `git clone git@github.com:webuildsociety/svelte-headless.git`
 - Install with `npm install`
 - Run with `npm run dev`
+
+*See [how it works](https://svelteheadless.com/how-it-works) for a walkthrough of the code.*
 
 ## Make it your own
 - We use [Tailwind](https://tailwindcss.com/) for CSS styling, as it's faster to code and less prone to mistakes than standard CSS. Add your own styling in `app.css`
