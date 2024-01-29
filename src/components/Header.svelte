@@ -1,7 +1,7 @@
 <script>
   import { page } from '$app/stores';
 </script>
-<div class="flex flex-row items-center">
+<header class="flex flex-row items-center">
   <div class="flex flex-row-reverse md:w-1/6 pr-5">
     <a href="/" class="w-8 h-8"><img src="/logo.png" alt="Svelte Headless CMS" /></a>
   </div>
@@ -19,5 +19,5 @@
   <div class="flex md:w-1/6">
     <!-- gutter margin -->
   </div>
-</div>
+</header>
 <hr />
