@@ -14,7 +14,8 @@ export default {
       },
       fontFamily: {
         sans: ['Helvetica', 'sans-serif'],
-        serif: ['Merriweather', 'serif']
+        serif: ['Merriweather', 'serif'],
+        system: ['Courier']
 			}
 		}
   },

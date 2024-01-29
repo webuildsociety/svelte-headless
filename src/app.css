@@ -40,3 +40,9 @@ img {
 .content code {
   @apply bg-gray-100 py-1 px-2 rounded;
 }
+.content pre {
+  @apply border border-gray-300 p-5 text-white bg-black font-system w-full mt-5 overflow-x-scroll;
+}
+.content pre code {
+  @apply bg-black p-0 text-sm leading-none;
+}
