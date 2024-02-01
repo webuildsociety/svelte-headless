@@ -22,12 +22,27 @@
       <img src={note.img.src} alt={note.img.alt} class="rounded-xl" />
     {/if}
   
-    {@html note.content_html}
+    {#if note._id}
+
+      <!-- Pass the pullnote HTML through -->
+      {@html note.content_html}
+
+    {:else}
+
+      <!-- This keeps non-pullnote folders working -->
+      <slot />
+
+    {/if}
   
+    <!-- Basic menu for other notes in the same folder -->
+    <ul>
+      {#each note.links as subnote}
+        <li><a href={subnote.href}>{subnote.title}</a></li>
+      {/each}
+    </ul>
+
   </div>
 
 </div>
-
-<slot />
 
 <Footer />
