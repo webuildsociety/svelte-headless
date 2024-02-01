@@ -28,4 +28,6 @@
 
 </div>
 
+<slot />
+
 <Footer />
