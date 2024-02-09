@@ -16,11 +16,14 @@ select {
   @apply border border-solid border-gray-300 p-2 rounded
 }
 
-ul {
+ul, ol {
 	@apply ml-8;
 }
 ul li {
 	@apply p-1 list-disc leading-loose;
+}
+ol li {
+	@apply p-1 list-decimal leading-loose;
 }
 
 img {
