@@ -9,7 +9,9 @@
 </script>
 
 <svelte:head>
-  {@html note.head_html}
+  {#if note.head_html}
+    {@html note.head_html}
+  {/if}
 </svelte:head>
 
 <Header />
@@ -17,12 +19,12 @@
 <div class="my-9">
   
   <div class="flex flex-col gap-5 md:w-2/3 mx-auto content">
-  
-    {#if note.picture}
-      <img src={note.img.src} alt={note.img.alt} class="rounded-xl" />
-    {/if}
-  
+    
     {#if note._id}
+
+      {#if note.picture}
+        <img src={note.img.src} alt={note.img.alt} class="rounded-xl" />
+      {/if}
 
       <!-- Pass the pullnote HTML through -->
       {@html note.content_html}
