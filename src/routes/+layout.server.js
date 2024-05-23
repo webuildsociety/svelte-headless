@@ -11,5 +11,13 @@ export async function load({url, params}) {
       "pn_authorization": "Bearer " + PULLNOTE_KEY
     }
   });
-  return await res.json();
+
+  // Data includes content_html and head_html for passing directly
+  var data = await res.json();
+
+  // Uncomment to see what data pullnote returns
+  // console.log(url.pathname, {data});
+
+  return data;
+
 }

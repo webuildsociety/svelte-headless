@@ -10,8 +10,8 @@
 
     <a href="/blog" class="flex-grow text-right underline">Blog</a>
     <a href="/getting-started" class="underline">Getting Started</a>
-    {#if !($page.data.is_root)}
-      <a href={$page.data.category.pathname} class="underline">
+    {#if $page.data.note_id && !$page.data.is_root}
+      <a href={$page.data.category.full_slug} class="underline">
         {$page.data.category.title}
       </a>
     {/if}

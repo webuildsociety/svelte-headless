@@ -37,11 +37,22 @@
     {/if}
   
     <!-- Basic menu for other notes in the same folder -->
-    <ul>
-      {#each note.links as subnote}
-        <li><a href={subnote.href}>{subnote.title}</a></li>
-      {/each}
-    </ul>
+    {#if note.links}
+      <hr />
+      <h4 class="italic">Related docs</h4>
+      <div class="flex flex-col gap-3">
+        {#each note.links as subnote}
+          <div class="flex flex-row gap-2 items-center">
+            <a href={subnote.href} class="w-20 h-20">
+              {#if subnote.img.src}
+                <img src={subnote.img.src} alt={subnote.img.alt} class="w-10" />
+              {/if}
+            </a>
+            <a href={subnote.href}>{subnote.title}</a>
+          </div>
+        {/each}
+      </div>
+    {/if}
 
   </div>
 
