@@ -2,60 +2,48 @@
   import "../app.css";
   import Header from '$components/Header.svelte';
   import Footer from '$components/Footer.svelte';
+  import { page } from '$app/stores';
 
-  export let data;
-  $: note = data; // Make the note reactive so that layout.svelte refreshes with url changes
+  const defaultTitle = "Svelte Headless CMS";
+  const defaultDescription = "Quick, easy, free headless CMS for SvelteKit";
+  const defaultImgUrl = '/img/svelte-headless.png';
 
+  let note = $state(page.data);
+	let { children } = $props();
 </script>
 
 <svelte:head>
-  {#if note.head_html}
-    {@html note.head_html}
-  {/if}
+  <title>{note?.title ?? defaultTitle}</title>
+  <meta name="description" content={note?.description ?? defaultDescription}>
+  <link rel="canonical" href={note?.url}>
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content={note?.title ?? defaultTitle}>
+  <meta property="og:description" content={note?.description ?? defaultDescription}>
+  <meta property="og:url" content={note?.url}>
+  <meta property="og:image" content={note?.imgUrl ?? defaultImgUrl}>
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={note?.title ?? defaultTitle}>
+  <meta name="twitter:description" content={note?.description ?? defaultDescription}>
+  <meta name="twitter:image" content={note?.imgUrl ?? defaultImgUrl}>
+  <meta name="twitter:imageAlt" content={note?.title ?? "Svelte Headless CMS"}>
+
+  {@html '<script type="application/ld+json">' + JSON.stringify({
+    "@context": "https://schema.org/",
+    "@type": "Article",
+    "headline": note?.title ?? defaultTitle,
+    "description": note?.description ?? defaultDescription,
+    "image": note?.imgUrl ?? defaultImgUrl,
+    "url": note?.url
+  }) + '</script>'}
+
 </svelte:head>
 
 <Header />
 
-<div class="my-9">
-  
-  <div class="flex flex-col gap-5 md:w-2/3 mx-auto content">
-    
-    {#if note._id}
-
-      {#if note.picture}
-        <img src={note.img.src} alt={note.img.alt} class="rounded-xl" />
-      {/if}
-
-      <!-- Pass the pullnote HTML through -->
-      {@html note.content_html}
-
-    {:else}
-
-      <!-- This keeps non-pullnote folders working -->
-      <slot />
-
-    {/if}
-  
-    <!-- Basic menu for other notes in the same folder -->
-    {#if note.links}
-      <hr />
-      <h4 class="italic">Related docs</h4>
-      <div class="flex flex-col gap-3">
-        {#each note.links as subnote}
-          <div class="flex flex-row gap-2 items-center">
-            <a href={subnote.href} class="w-20 h-20">
-              {#if subnote.img.src}
-                <img src={subnote.img.src} alt={subnote.img.alt} class="w-10" />
-              {/if}
-            </a>
-            <a href={subnote.href}>{subnote.title}</a>
-          </div>
-        {/each}
-      </div>
-    {/if}
-
-  </div>
-
-</div>
+{@render children()}
 
 <Footer />

@@ -1,23 +1,24 @@
-// Back-end SvelteKit to retrieve blog content from pullnote.com
-export async function load({url, params}) {
+// Server-side content retrieval for all content pages
+// Put your own pullnote key in /.env
+import { PULLNOTE_KEY } from '$env/static/private';
+import { PullnoteClient } from '@pullnote/client';
+import { error } from '@sveltejs/kit';
 
-  // Replace this with your own key
-  const PULLNOTE_KEY = "svelte-h_615pnaa082d2d29199";
+export async function load({ url }) {
+  var path = url.pathname;
+  // Ignore paths that start with . e.g. .well-known/appspecific/com.chrome.devtools.json
+  if (path.startsWith("/.")) {
+    return;
+  }
+  const pn = new PullnoteClient(PULLNOTE_KEY, "http://api.pullnote.test");
 
-  // Get content from pullnote
-  var res = await fetch("https://pullnote.com/pull/note" + url.pathname, {
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "pn_authorization": "Bearer " + PULLNOTE_KEY
-    }
-  });
+  try {
+    var note = await pn.get(path, 'html');
+    note.links = await pn.list(path);
+  } catch (e) {
+    // Note: this will throw EVEN if a svelte route is found, so make sure you create a path on pullnote!
+    error(404, "Content not found for " + path);
+  }
 
-  // Data includes content_html and head_html for passing directly
-  var data = await res.json();
-
-  // Uncomment to see what data pullnote returns
-  // console.log(url.pathname, {data});
-
-  return data;
-
+  return note;
 }

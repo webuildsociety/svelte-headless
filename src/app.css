@@ -1,7 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
+/* Tailwind 4: Add custom config here using the new CSS-based configuration syntax if needed */
 h1 {
   @apply text-4xl;
 }
@@ -31,7 +30,7 @@ img {
 }
 
 .btn {
-  @apply bg-blue-500 text-white px-4 py-2 rounded-md transition ease-in duration-200 transform hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50;
+  @apply bg-blue-500 text-white px-4 py-2 rounded-md transition ease-in duration-200 transform hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-600;
 }
 
 .content {
@@ -44,7 +43,7 @@ img {
   @apply bg-gray-100 py-1 px-2 rounded;
 }
 .content pre {
-  @apply border border-gray-300 p-5 text-white bg-black font-system w-full mt-5 overflow-x-scroll;
+  @apply border border-gray-300 p-5 text-white bg-black font-mono w-full mt-5 overflow-x-scroll;
 }
 .content pre code {
   @apply bg-black p-0 text-sm leading-none;
