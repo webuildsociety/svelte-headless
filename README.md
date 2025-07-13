@@ -1,38 +1,24 @@
-# sv
+# Svelte Headless
+Example site showing how to create a simple blog site in Svelte 5 that plugs into a headless CMS.
+See this running at [svelteheadless.com](https://www.svelteheadless.com/).
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+## Getting started
+- Clone this repo with `git clone git@github.com:webuildsociety/svelte-headless.git`
+- Install with `npm install`
+- Copy `example.env` to `.env` and grab a free api key from [pullnote.com](https://pullnote.com)
+- Run with `npm run dev`
 
-## Creating a project
+*See [how it works](https://svelteheadless.com/blog/how-it-works) for a walkthrough of the code.*
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Make it your own
+- We use [Tailwind](https://tailwindcss.com/) for CSS styling, as it's faster to code and less prone to mistakes than standard CSS. Add your own styling in `app.css`
+- We use [Pullnote](https://pullnote.com) as the content management system, as it's headless and free. Setup your own, and replace the `PULLNOTE_KEY` in `+layout.server.js`
+- Non-CMS pages can be added as normal using additional folders under `routes`
+- Replace `+page.svelte` with your home-page or adjust `Header.svelte` and `Footer.svelte` to suit
 
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Get it live
+*We use Vercel for hosting, but you can just as easily host on Netlify, Cloudflare Pages or your own GCP / AWS VM.*
+- Get a free [github](https://github.com) account and use [GitHub desktop](https://desktop.github.com/) to upload to your repo
+- Register a domain (we use [Fasthosts](https://fasthosts.co.uk)) and add an A record to point it at Vercel's public IP address `76.76.21.21`
+- Setup a [Vercel](https://vercel.com) account and point it at your github account and domain
+- Et Voila! You're live on the internet with an editable blog.
