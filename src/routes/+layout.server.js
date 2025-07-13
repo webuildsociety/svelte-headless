@@ -1,22 +1,21 @@
 // Server-side content retrieval for all content pages
-// Put your own pullnote key in /.env
+// You can just use e.g. /blog by moving this and the [...path] folder into a /blog subdirectory
+// Place your own pullnote key in /.env
 import { PULLNOTE_KEY } from '$env/static/private';
 import { PullnoteClient } from '@pullnote/client';
 import { error } from '@sveltejs/kit';
 
 export async function load({ url }) {
   var path = url.pathname;
-  // Ignore paths that start with . e.g. .well-known/appspecific/com.chrome.devtools.json
-  if (path.startsWith("/.")) {
-    return;
-  }
-  const pn = new PullnoteClient(PULLNOTE_KEY, "http://api.pullnote.test");
+  if (path.startsWith("/.")) return; // Ignore paths that start with . e.g. .well-known/appspecific/com.chrome.devtools.json
+
+  // Create the pullnote client with your own key
+  const pn = new PullnoteClient(PULLNOTE_KEY);
 
   try {
     var note = await pn.get(path, 'html');
     note.links = await pn.list(path);
   } catch (e) {
-    // Note: this will throw EVEN if a svelte route is found, so make sure you create a path on pullnote!
     error(404, "Content not found for " + path);
   }
 
