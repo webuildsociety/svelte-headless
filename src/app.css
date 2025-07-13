@@ -1,5 +1,11 @@
 @import 'tailwindcss';
 
+@theme {
+  /* Bespoke brand colors */
+  --color-shblue: #ace0f1;
+}
+
+
 /* Tailwind 4: Add custom config here using the new CSS-based configuration syntax if needed */
 h1 {
   @apply text-4xl;
@@ -27,6 +33,10 @@ ol li {
 
 img {
   @apply max-h-96 mx-auto;
+}
+
+a { 
+  @apply text-blue-800 hover:text-shblue;
 }
 
 .btn {

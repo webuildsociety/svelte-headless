@@ -8,14 +8,14 @@
   {#if note?.links?.length}
     <hr />
     <h4 class="italic">Related</h4>
-    <div class="flex flex-wrap gap-3">
+    <div class="flex flex-wrap gap-10">
       {#each note.links as subnote}
-        <div class="flex flex-row gap-2 items-center">
-          <a href={"/" + subnote.path} class="w-20 h-20">
-            {#if subnote.imgUrl}
-              <img src={subnote.imgUrl} alt={subnote.title} class="w-10" />
+        <div class="flex flex-wrap gap-2 items-center">
+          <a href={"/" + subnote.path}>
+            {#if subnote?.imgUrl}
+              <img src={subnote.imgUrl} alt={subnote?.title} class="w-6" />
             {:else}
-              <img src="/logo.png" alt={subnote.title} class="w-10" />
+              <img src="/logo.png" alt={subnote?.title} class="w-6" />
             {/if}
           </a>
           <a href={"/" + subnote.path}>{subnote.title}</a>

@@ -9,7 +9,7 @@
     <h1>{page.data?.title}</h1>
 
     <a href="/blog" class="flex-grow text-right underline">Blog</a>
-    <a href="/getting-started" class="underline">Getting Started</a>
+    <a href="/getting-started" class="underline">Get Started</a>
   </div>
   <div class="flex md:w-1/6">
     <!-- gutter margin -->
