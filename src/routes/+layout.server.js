@@ -16,7 +16,7 @@ export async function load({ url }) {
     // Pullnote accepts any path (without the domain name)
     var note = await pn.get(path, 'html');
     // list gives any notes under the given path
-    note.links = await pn.list(path);
+    note.list = await pn.list(path);
   } catch (e) {
     error(404, "Content not found for " + path);
   }
